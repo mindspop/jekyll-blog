@@ -2,7 +2,7 @@ markdown: redcarpet
 highlighter: null
 permalink: /:title
 
-url:mindspop.github.io
+url: mindspop.github.io
 baseurl:
 
 redcarpet:
