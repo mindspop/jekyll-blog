@@ -1,3 +1,9 @@
+---
+layout: post
+title: Demo post
+---
+
+
 Welcome to StackEdit!	{#welcome}
 =====================
 
