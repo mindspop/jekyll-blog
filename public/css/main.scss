@@ -289,7 +289,11 @@ dl,
   line-height: 0;
   font-size: 0;
 }
-
+header .wrap {
+  width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 .sidenav { width:240px; background:#fff; float:right; padding:20px; margin-bottom:50px; box-shadow:0 1px 4px #ccc; }
 .sidenav h2 { font-size:18px; color:#333; margin-bottom:15px; }
