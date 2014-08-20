@@ -1,5 +1,6 @@
 $(document).ready(function(){
     (function(){
+        $.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());
         var ie6 = ($.browser.msie && $.browser.version=="6.0") ? true : false;
 
         function initHeading(){
