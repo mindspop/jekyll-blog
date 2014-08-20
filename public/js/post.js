@@ -1,7 +1,31 @@
 $(document).ready(function(){
     (function(){
-        $.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());
-        var ie6 = ($.browser.msie && $.browser.version=="6.0") ? true : false;
+
+        var isMobile = {
+        Android: function() {
+            return navigator.userAgent.match(/Android/i);
+        }
+        ,BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i);
+        }
+        ,iOS: function() {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        }
+        ,Opera: function() {
+            return navigator.userAgent.match(/Opera Mini/i);
+        }
+        ,Windows: function() {
+            return navigator.userAgent.match(/IEMobile/i);
+        }
+        ,any: function() {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        }
+        };
+
+
+
+        
+        var isIE6= /msie 6/i.test(navigator.userAgent);
 
         function initHeading(){
             var h2 = [];
