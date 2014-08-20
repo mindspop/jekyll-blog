@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Demo post
+title: Welcome document
 ---
 
 
