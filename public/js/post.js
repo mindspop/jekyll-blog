@@ -24,7 +24,7 @@ $(document).ready(function(){
 
 
 
-        
+
         var isIE6= /msie 6/i.test(navigator.userAgent);
 
         function initHeading(){
@@ -32,7 +32,7 @@ $(document).ready(function(){
             var h3 = [];
             var h2index = 0;
 
-            $.each($('.entry h2, .entry h3'),function(index,item){
+            $.each($('.single h2, .single h3'),function(index,item){
                 if(item.tagName.toLowerCase() == 'h2'){
                     var h2item = {};
                     h2item.name = $(item).text();
@@ -107,7 +107,7 @@ $(document).ready(function(){
             };
         })();
 
-        if($('.entry h2').length > 2 && !isMobile.any() && !ie6){
+        if($('.single h2').length > 2 && !isMobile.any() && !ie6){
 
             genIndex();
 
