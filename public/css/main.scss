@@ -3,14 +3,14 @@
 
 @import 'syntax';
 
-$site-background-color: #f5f5f5;
-$contrast-color: #333;
+$site-background-color: #f8f8f5;
+$contrast-color: #000;
 
 $azul-accent-color: #0070bb;
 $ruby-accent-color: #e0115f;
 $amber-accent-color: #ff7e00;
 $avocado-accent-color: #568203;
-
+$entry-color: #5c5c5c;
 /*============================================================================*/
 * {
   margin: 0;
@@ -21,7 +21,7 @@ $avocado-accent-color: #568203;
 body {
   background-color: $site-background-color;
   border-top: 5px solid $contrast-color;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Classic Grotesque W01",Arial,"Hiragino Sans GB","STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",SimSun,sans-serif;
   color: $contrast-color;
   font-weight: 400;
   line-height: 1.5;
@@ -142,7 +142,7 @@ footer {
 }
 
 .container {
-  max-width: 960px;
+  width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -198,7 +198,8 @@ footer {
   font-size: 1.125rem;
   line-height: 28px;
   float: left;
-  width: 700px;
+  width: 650px;
+  color: $entry-color;
 }
 
 .single time {
@@ -290,14 +291,14 @@ dl,
   font-size: 0;
 }
 header .wrap {
-  width: 960px;
+  width: 1000px;
   margin-right: auto;
   margin-left: auto;
 }
 #disqus_thread {
-  width: 700px;
+  width: 650px;
 }
-.sidenav { width:240px; background:#fff; float:right; padding:20px; margin-bottom:50px; box-shadow:0 1px 4px #ccc; }
+.sidenav { width:320px; background:#fff; float:right; margin-left: 30px; margin-bottom:50px; box-shadow:0 1px 4px #ccc; }
 .sidenav h2 { font-size:18px; color:#333; margin-bottom:15px; }
 .sidenav ul { margin-bottom:50px; }
 .sidenav li { margin-bottom:12px; word-break: break-all;}
