@@ -6,15 +6,15 @@
 
 
 /* 	SET ALL ELEMENTS TO BOX-SIZING : BORDER-BOX */
-* { 
+/** { 
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	*behavior: url(/scripts/boxsizing.htc); 
-	/*	If you need support for IE7 and lower make 
+		If you need support for IE7 and lower make 
 		sure the boxsizing.htc file is linked properly.
-		More info here:  https://github.com/Schepp/box-sizing-polyfill */
-}
+		More info here:  https://github.com/Schepp/box-sizing-polyfill 
+}*/
 
 
 /*	MAIN CONTAINER 
