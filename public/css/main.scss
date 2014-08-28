@@ -22,8 +22,15 @@ $amber-accent-color: #ff7e00;
 $avocado-accent-color: #568203;
 
 /*============================================================================*/
+html {
+  height: 100%;
+}
 
 body {
+  position: relative;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
   background-color: $site-background-color;
   border-top: 5px solid $contrast-color;
   font-family: "Classic Grotesque W01",Arial,"Hiragino Sans GB","STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",SimSun,sans-serif;
@@ -193,9 +200,11 @@ dd {
 
 
 footer {
+  position: absolute;
+  bottom: 0;
   font-size: .8rem;
   text-align: center;
-  margin-top: 80px;
+  width: 100%;
   color: #B4B3B3;
 }
 
@@ -222,6 +231,7 @@ footer {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 150px;
 }
 
 .center {
@@ -340,11 +350,10 @@ dl,
 /*============================================================================*/
 #logo {
   display: inline-block;
-  height: 90px;
-  width: 90px;
-  margin-left: -10px;
-  background-size: 90px 90px;
-  background-position: left center;
+  height: 70px;
+  width: 52px;
+  margin-left: 20px;
+  margin-top: 10px;
   background-repeat: no-repeat;
 }
 
