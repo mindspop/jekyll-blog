@@ -81,7 +81,7 @@ address,caption,cite,code,dfn,em,th,var {
 
 // 去掉列表前的标识, li 会继承
 ol,ul {
-  list-style: none;
+  // list-style: none;
 }
 
 // 对齐是排版最重要的因素, 别让什么都居中
