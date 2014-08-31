@@ -1,150 +1,335 @@
 ---
 ---
+@charset 'utf-8';
 
 @import 'syntax';
 
-$site-background-color: #f8f8f5;
-$contrast-color: #000;
+// Core Variables and Mixins
+@import './variables', './mixins';
 
+// CSS Reset
+@import './reset';
+
+// Utility Classes
+@import './utilities';
+
+$site-background-color: #fff;
+$contrast-color: #000;
+$entry-background-color: #f8f8f8;
 $azul-accent-color: #0070bb;
 $ruby-accent-color: #e0115f;
 $amber-accent-color: #ff7e00;
 $avocado-accent-color: #568203;
 $entry-color: #5c5c5c;
 /*============================================================================*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+html {
+  height: 100%;
 }
 
 body {
+  position: relative;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
   background-color: $site-background-color;
   border-top: 5px solid $contrast-color;
   font-family: "Classic Grotesque W01",Arial,"Hiragino Sans GB","STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",SimSun,sans-serif;
   color: $contrast-color;
+  font-size: 14px/1.6;
   font-weight: 400;
-  line-height: 1.5;
-
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6, p, ul, ol, dl,
-blockquote,
-table,
-img,
-hr,
-.fluid-width-video-wrapper,
-.highlight {
-  margin-bottom: 20px;
-}
-
-blockquote {
-  padding: 0 30px;
-  border-left: 2px solid darken($site-background-color, 15%);
-}
-
-ul, ol {
-  margin-left: 40px;
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  border: none;
-  outline: none;
-}
-
 a {
-  text-decoration: none;
-}
-
-hr {
-  border : 0;
-  height: 25px;
-  background : url(/public/images/eagle.png) center center no-repeat;
-}
-
-code {
-  font-family: Consolas, "Liberation Mono", Courier, monospace;
-  font-size: .8rem;
-}
-
-p code {
-  padding: 0px 5px;
-  border: 1px solid #ddd;
-  background-color: #f8f8f8;
-  border-radius: 3px;
-  white-space: nowrap;
-}
-
-table {
-  border-collapse: collapse;
-  border: 1px solid $contrast-color;
-
-  td, th {
-    border: 1px solid $contrast-color;
-    padding: 5px 10px;
-  }
-
-  thead {
-    background-color: darken($site-background-color, 10%);
-  }
-}
-
-// TODO: make dt smaller
-dt {
-  float: left;
-  width: 30%;
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+ 
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
   font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+ 
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
+  text-decoration: none; }
+ 
+h1 tt, h1 code {
+  font-size: inherit; }
+ 
+h2 tt, h2 code {
+  font-size: inherit; }
+ 
+h3 tt, h3 code {
+  font-size: inherit; }
+ 
+h4 tt, h4 code {
+  font-size: inherit; }
+ 
+h5 tt, h5 code {
+  font-size: inherit; }
+ 
+h6 tt, h6 code {
+  font-size: inherit; }
+ 
+h1 {
+  font-size: 28px;
+  color: black; }
+ 
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+ 
+h3 {
+  font-size: 18px; }
+ 
+h4 {
+  font-size: 16px; }
+ 
+h5 {
+  font-size: 14px; }
+ 
+h6 {
+  color: #777777;
+  font-size: 14px; } 
+
+.markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
+    margin: 15px 0;
+}
+.markdown-body hr {
+    background: url("https://a248.e.akamai.net/assets.github.com/assets/primer/markdown/dirty-shade-350cca8f57223ebd53603021b2e670f4f319f1b7.png") repeat-x scroll 0 0 transparent;
+    border: 0 none;
+    color: #CCCCCC;
+    height: 4px;
+    padding: 0;
+}
+.markdown-body h1 + p, .markdown-body h2 + p, .markdown-body h3 + p, .markdown-body h4 + p, .markdown-body h5 + p, .markdown-body h6 + p {
+    margin-top: 0;
+}
+.markdown-body li p.first {
+    display: inline-block;
+}
+.markdown-body ul, .markdown-body ol {
+    padding-left: 30px;
+}
+.markdown-body ul.no-list, .markdown-body ol.no-list {
+    list-style-type: none;
+    padding: 0;
+}
+.markdown-body ul li > *:first-child, .markdown-body ol li > *:first-child {
+    margin-top: 0;
+}
+.markdown-body ul ul, .markdown-body ul ol, .markdown-body ol ol, .markdown-body ol ul {
+    margin-bottom: 0;
+}
+.markdown-body dl {
+    padding: 0;
+}
+.markdown-body dl dt {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 15px 0 5px;
+    padding: 0;
+}
+.markdown-body dl dt:first-child {
+    padding: 0;
+}
+.markdown-body dl dt > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dt > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px;
+}
+.markdown-body dl dd > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dd > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body blockquote {
+    border-left: 4px solid #DDDDDD;
+    color: #777777;
+    padding: 0 15px;
+}
+.markdown-body blockquote > *:first-child {
+    margin-top: 0;
+}
+.markdown-body blockquote > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body table th {
+    font-weight: bold;
+}
+.markdown-body table th, .markdown-body table td {
+    border: 1px solid #CCCCCC;
+    padding: 6px 13px;
+}
+.markdown-body table tr {
+    background-color: #FFFFFF;
+    border-top: 1px solid #CCCCCC;
+}
+.markdown-body table tr:nth-child(2n) {
+    background-color: #F8F8F8;
+}
+.markdown-body img {
+    max-width: 100%;
+}
+.markdown-body span.frame {
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.frame > span {
+    border: 1px solid #DDDDDD;
+    display: block;
+    float: left;
+    margin: 13px 0 0;
+    overflow: hidden;
+    padding: 7px;
+    width: auto;
+}
+.markdown-body span.frame span img {
+    display: block;
+    float: left;
+}
+.markdown-body span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0;
+}
+.markdown-body span.align-center {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-center > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: center;
+}
+.markdown-body span.align-center span img {
+    margin: 0 auto;
+    text-align: center;
+}
+.markdown-body span.align-right {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-right > span {
+    display: block;
+    margin: 13px 0 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body span.align-right span img {
+    margin: 0;
+    text-align: right;
+}
+.markdown-body span.float-left {
+    display: block;
+    float: left;
+    margin-right: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-left span {
+    margin: 13px 0 0;
+}
+.markdown-body span.float-right {
+    display: block;
+    float: right;
+    margin-left: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-right > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body code, .markdown-body tt {
+    background-color: #fff;
+    border: 1px solid #EAEAEA;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 2px;
+    padding: 0 5px;
+    white-space: nowrap;
+    font-size: 14px;
+}
+.markdown-body pre > code {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+}
+.markdown-body .highlight pre, .markdown-body pre {
+    background-color: #F8F8F8;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+}
+.markdown-body pre code, .markdown-body pre tt {
+    background-color: transparent;
+    border: medium none;
 }
 
-dd {
-  float: right;
-  width: 70%;
-}
 
 footer {
+  position: absolute;
+  bottom: 0;
   font-size: .8rem;
   text-align: center;
+  width: 100%;
+  color: #B4B3B3;
 }
 
 /*============================================================================*/
-.azul { a { color: $azul-accent-color;
-    &:hover { color: darken($azul-accent-color, 20%);
-}}}
+// .azul { a { color: $azul-accent-color;
+//     &:hover { color: darken($azul-accent-color, 20%);
+// }}}
 
-.ruby { a { color: $ruby-accent-color;
-    &:hover { color: darken($ruby-accent-color, 20%);
-}}}
+// .ruby { a { color: $ruby-accent-color;
+//     &:hover { color: darken($ruby-accent-color, 20%);
+// }}}
 
-.amber { a { color: $amber-accent-color;
-    &:hover { color: darken($amber-accent-color, 20%);
-}}}
+// .amber { a { color: $amber-accent-color;
+//     &:hover { color: darken($amber-accent-color, 20%);
+// }}}
 
-.avocado { a { color: $avocado-accent-color;
-    &:hover { color: darken($avocado-accent-color, 20%);
-}}}
+// .avocado { a { color: $avocado-accent-color;
+//     &:hover { color: darken($avocado-accent-color, 20%);
+// }}}
 
 /*----------------------------------------------------------------------------*/
 
-.highlight {
-  padding: 30px;
-  border-radius: 6px;
-  background-color: #272822;
-  color: #f8f8f2;
-  line-height: 1;
-
-  code {
-    font-size: .7rem;
-  }
-}
-
 .container {
-  width: 1000px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 150px;
 }
 
 .center {
@@ -162,8 +347,8 @@ footer {
 }
 
 .top-navbar {
-  margin-bottom: 40px;
-  height: 110px;
+  margin-bottom: 10px;
+  height: 100px;
 
   a {
     display: inline-block;
@@ -172,7 +357,9 @@ footer {
     margin-right: 10px;
     margin-top: 30px;
     border-radius: 5px;
-    transition: all ease-in-out .25s;
+    font-size: 20px;
+    font-style: bold;
+    // transition: all ease-in-out .25s;
     &:hover,
     &.current-page {
       color: $site-background-color;
@@ -181,6 +368,7 @@ footer {
 
     &:hover {
       background-color: $contrast-color;
+      text-decoration: none;
     }
 
     &.current-page {
@@ -191,20 +379,26 @@ footer {
 
 .archive,
 .single {
-  margin-bottom: 100px;
+  margin-bottom: 70px;
 }
 
 .single {
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 28px;
   float: left;
-  width: 650px;
-  color: $entry-color;
+  width: 630px;
+  padding: 25px;
+  margin-right: 20px;
+  background-color: $entry-background-color;
+  box-shadow:0 1px 4px #ccc; 
 }
 
 .single time {
   color: #999;
   font-size: .9rem;
+  display: block;
+  margin-top: -12px;
+  margin-bottom: 20px;
 }
 
 .bundle {
@@ -216,7 +410,18 @@ footer {
 
 .post-date {
   text-align: right;
+  color: #7d7d7d;
 }
+
+.post-year {
+  margin: 0;
+  border-bottom: none;
+}
+
+.posts-by-year, .posts-by-year a {
+  font-size: 16px;
+}
+
 
 .not-found {
   margin-top: 150px;
@@ -243,10 +448,10 @@ dl,
 /*============================================================================*/
 #logo {
   display: inline-block;
-  height: 110px;
-  width: 110px;
-  background-size: 90px 90px;
-  background-position: left center;
+  height: 70px;
+  width: 52px;
+  margin-left: 20px;
+  margin-top: 10px;
   background-repeat: no-repeat;
 }
 
@@ -284,6 +489,13 @@ dl,
   }
 }
 
+.statement {
+  clear: both;
+  width: 650px;
+  font-size: 14px;
+}
+
+
 /*============================================================================*/
 .cnzz {
   visibility: hidden;
@@ -298,16 +510,16 @@ header .wrap {
 #disqus_thread {
   width: 650px;
 }
-.sidenav { width:320px; background:#fff; float:right; margin-left: 30px; margin-bottom:50px; box-shadow:0 1px 4px #ccc; }
+.sidenav { width:280px; background: $entry-background-color; float:right; padding:20px 10px; margin-bottom:50px; box-shadow:0 1px 4px #ccc; }
 .sidenav h2 { font-size:18px; color:#333; margin-bottom:15px; }
 .sidenav ul { margin-bottom:50px; }
 .sidenav li { margin-bottom:12px; word-break: break-all;}
 .sidenav a { color:#555; font-size:14px; display:block;}
 #menuIndex {overflow:auto;}
 #menuIndex a {display:block; padding:2px 0; }
-#menuIndex a:hover {text-decoration:none;}
-#menuIndex ul {margin-bottom:10px;}
+#menuIndex a:hover {text-decoration:none; color: #000;}
+#menuIndex ul {margin-bottom:10px;list-style: none;}
 #menuIndex ul li{font-size:12px;margin-bottom:5px;word-wrap:break-word;padding-left:10px;}
-#menuIndex ul li.on{background-color:#f5f5f5;}
+#menuIndex ul li.on{background-color:#ececec;}
 #menuIndex li.h1{font-size:14px;font-weight:normal;padding-left:0;margin-bottom:10px;}
 #menuIndex li.h3{padding-left:25px;}

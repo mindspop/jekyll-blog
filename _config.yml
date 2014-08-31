@@ -1,6 +1,6 @@
 markdown: redcarpet
 highlighter: null
-permalink: /:title
+permalink: /:year-:month-:day/:title.html
 
 url: mindspop.github.io
 baseurl:
