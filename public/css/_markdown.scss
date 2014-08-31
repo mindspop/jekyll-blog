@@ -1,3 +1,8 @@
+/*
+ * 引用自 GitHub markdown 样式，同时修改了代码部分的样式
+ */
+
+
 a {
   color: #4183C4; }
 a.absent {
@@ -224,6 +229,8 @@ h6 {
     overflow: hidden;
     text-align: right;
 }
+
+//修改了 inline code 背景颜色为#fff
 .markdown-body code, .markdown-body tt {
     background-color: #fff;
     border: 1px solid #EAEAEA;
@@ -240,6 +247,8 @@ h6 {
     padding: 0;
     white-space: pre;
 }
+
+//修改了pre 背景颜色为 #23241f
 .markdown-body .highlight pre, .markdown-body pre {
     background-color: #23241f;
     border: 1px solid #CCCCCC;

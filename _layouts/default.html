@@ -7,15 +7,14 @@
   <body>
      <header class="top row gutters{% if page.title == "Home" %} fadeInLeft animated{% endif %}">
       <div class="wrap">
-        <div class="col span_2 center">
-          <!-- TODO: add baseurl to the logo link -->
-          <span id="logo" title="{{ site.data.brume.name }}"
+        <div class="col span_2">
+          <span class="logo" title="{{ site.data.brume.name }}"
              style="background-image: url({{site.baseurl}}/public/images/coffee.png);"></span>
         </div>
         {% include navigation.html %}
       </div>
     </header>
-    <div id="content" class="container azul">
+    <div id="content" class="container">
       {{ content }}
     </div>
     <footer>
@@ -23,9 +22,12 @@
           Copyright © 2014 Mindspop. Powered By <a href="https://github.com/" title="Github">Github</a> and <a href="http://jekyllrb.com/" title="Jekyll">Jekyll</a>, Theme By <a href="http://jekyllthemes.org/themes/brume/" title="Brume">Brume</a>.
         </p>
     </footer>
+    <!-- cnzz 统计代码 -->
+    <div class="cnzz">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253096469'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1253096469' type='text/javascript'%3E%3C/script%3E"));</script>
+    </div>
     <!-- scripts -->
     <script src="{{site.baseurl}}/public/js/jquery.fitvids.js"></script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">  
     <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script> 
     <script >hljs.initHighlightingOnLoad();</script> 
     <script>
@@ -33,9 +35,5 @@
         $("article").fitVids();
       });
     </script>
-
-    <div class="cnzz">
-    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253096469'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1253096469' type='text/javascript'%3E%3C/script%3E"));</script>
-    </div>
   </body>
 </html>
