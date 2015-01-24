@@ -1,10 +1,45 @@
 @import "lib/normalize";
 @import "lib/placeholder";
 
-
+html{-webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
 body{
     width: 640px;
     margin: 0 auto;
+}
+.start-mask{
+    // display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(238, 228, 218, .95);
+    text-align: center;
+    z-index: 1000;
+    .title{
+        margin-top: 200px;
+        margin-bottom: 100px;
+        font-size: 80px;
+        color: #776e65;
+    }
+    p{
+        font-size: 40px;
+        color: #71675D;
+    }
+
+    .start-btn{
+        height: 100px;
+        line-height: 100px;
+        vertical-align: middle;
+        padding: 0 36px;
+        margin: 40px 10px;
+        border: none;
+        border-radius: 6px;
+        background-color: #8f7a66;
+        color: #f9f6f2;
+        font-size: 30px;
+        outline: none;
+    }
 }
 .header{
     width: 600px;
@@ -64,7 +99,7 @@ body{
     margin: 0 auto;
     background-color: #bbada0;
     ul{
-     @extend %clearfix;
+       @extend %clearfix;
        // height: 456px;
    }
    .grid-cell{
@@ -94,6 +129,7 @@ body{
 }
 .block-2{
     color: #776e65;
+    font-size: 32px;
     background-color: #eee4da;
 }
 .block-4{
@@ -101,12 +137,14 @@ body{
     background-color: #ede0c8;
 }
 .block-8{
+    font-size: 32px;
     background-color: #f2b179;
 }
 .block-16{
     background-color: #f59563;
 }
 .block-32{
+    font-size: 32px;
     background-color: #f67c5f;
 }
 .block-64{
@@ -175,11 +213,24 @@ body{
         height: 100px;
         font-size: 30px;
         color: #37618B;
+        margin-left: 20px;
     }
     .text-block2{
         display: none;
         position: absolute;
         top: 200px;
+        height: 100px;
+        margin-left: 20px;
+        font-size: 30px;
+        color: #37618B;
+        line-height: 50px;
+    }
+    .text-block3{
+        display: none;
+        position: absolute;
+        width: 180px;
+        bottom: 160px;
+        right: 50px;
         height: 100px;
         font-size: 30px;
         color: #37618B;
@@ -188,18 +239,18 @@ body{
     .continue-btn{
         display: none;
         position: absolute;
-        bottom: 50px;
+        bottom: 20px;
         left: 0;
         right: 0;
         text-align: center;
         font-size: 30px;
         z-index: 100;
         button{
-            height: 100px;
-            line-height: 100px;
+            height: 80px;
+            line-height: 80px;
             vertical-align: middle;
-            padding: 0 36px;
-            margin: 40px 0;
+            padding: 0 30px;
+            // margin: 40px 0;
             border: none;
             border-radius: 6px;
             background-color: #8f7a66;
@@ -207,6 +258,22 @@ body{
             font-size: 30px;
             outline: none;
         }
+    }
+    .audio-btn{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        height: 50px;
+        width: 50px;
+        background-size: 50px auto;
+    }
+    .music-on{
+        background-image: url(../2048/img/music.png);
+    }
+    .music-off{
+        // background: url(../2048/img/music.png) no-repeat;
+        background-image: url(../2048/img/music.png);
+        opacity: 0.5;
     }
 }
 #love-block{

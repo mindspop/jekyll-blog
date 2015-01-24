@@ -38,13 +38,161 @@ $(document).ready(function() {
     //     "2048": "#edc22e"
     // }
     var gameScore = 0;
+    var isMyGF = false;
+    var isIT = false;
+    var getTextValue;
+    $("#js-it").on("touchend", function() {
+        $(".start-mask").hide();
+        isIT = true;
+        setGameVersion();
+        init();
+    })
+    $("#js-arch").on("touchend", function() {
+        $(".start-mask").hide();
+        isMyGF = true;
+        setGameVersion();
+        init();
+    })
+    $("#js-2048").on("touchend", function() {
+        $(".start-mask").hide();
+        setGameVersion();
+        $(".header .title").html("2048游戏").css("fontSize", "80px");
+        init();
+    })
+
+
+    function setGameVersion() {
+        if (isMyGF) {
+            getTextValue = function(number) {
+                switch (number) {
+                    case 2:
+                        return "刷夜时代";
+                        break;
+                    case 4:
+                        return "实习僧";
+                        break;
+                    case 8:
+                        return "画图工具";
+                        break;
+                    case 16:
+                        return "建筑师";
+                        break;
+                    case 32:
+                        return "主创";
+                        break;
+                    case 64:
+                        return "小组长";
+                        break;
+                    case 128:
+                        return "项目头头";
+                        break;
+                    case 256:
+                        return "设计总监";
+                        break;
+                    case 512:
+                        return "总经理";
+                        break;
+                    case 1024:
+                        return "CEO";
+                        break;
+                    case 2048:
+                        return "白富美";
+                        break;
+                    default:
+                        break;
+                };
+            };
+        } else if (isIT) {
+            getTextValue = function(number) {
+                switch (number) {
+                    case 2:
+                        return "实习僧";
+                        break;
+                    case 4:
+                        return "页面仔";
+                        break;
+                    case 8:
+                        return "码农";
+                        break;
+                    case 16:
+                        return "程序猿";
+                        break;
+                    case 32:
+                        return "攻城狮";
+                        break;
+                    case 64:
+                        return "产品狗";
+                        break;
+                    case 128:
+                        return "产品经理";
+                        break;
+                    case 256:
+                        return "产品总监";
+                        break;
+                    case 512:
+                        return "总经理";
+                        break;
+                    case 1024:
+                        return "CEO";
+                        break;
+                    case 2048:
+                        return "白富美";
+                        break;
+                    default:
+                        break;
+                };
+            };
+        } else {
+            getTextValue = function(number) {
+                switch (number) {
+                    case 2:
+                        return "2";
+                        break;
+                    case 4:
+                        return "4";
+                        break;
+                    case 8:
+                        return "8";
+                        break;
+                    case 16:
+                        return "16";
+                        break;
+                    case 32:
+                        return "32";
+                        break;
+                    case 64:
+                        return "64";
+                        break;
+                    case 128:
+                        return "128";
+                        break;
+                    case 256:
+                        return "256";
+                        break;
+                    case 512:
+                        return "512";
+                        break;
+                    case 1024:
+                        return "1024";
+                        break;
+                    case 2048:
+                        return "2048";
+                        break;
+                    default:
+                        break;
+                };
+            };
+        }
+
+    }
+
 
     for (var i = 0; i < 4; i++) {
         blockData[i] = new Array(4);
     };
 
     //初始化游戏
-    init();
+
 
     //绑定开始游戏按钮
     $(".start-btn").on("touchend", function() {
@@ -60,9 +208,6 @@ $(document).ready(function() {
         e.preventDefault();
         e.stopPropagation();
     });
-    $(".continue-btn").on("touchend", function() {
-        $(".love-block").css("display", "none");
-    })
 
 
     function init() {
@@ -173,9 +318,9 @@ $(document).ready(function() {
                         if (blockData[toPos[0]][toPos[1]] == 8) {
                             var timer;
                             clearTimeout(timer);
-                            timer= setTimeout(function(){
+                            timer = setTimeout(function() {
                                 $(".love-block").css("display", "block");
-                                 showLoveBlock();
+                                showLoveBlock();
 
                             }, 500);
                         }
@@ -233,9 +378,9 @@ $(document).ready(function() {
                         if (blockData[toPos[0]][toPos[1]] == 8) {
                             var timer;
                             clearTimeout(timer);
-                            timer= setTimeout(function(){
+                            timer = setTimeout(function() {
                                 $(".love-block").css("display", "block");
-                                 showLoveBlock();
+                                showLoveBlock();
 
                             }, 500);
                         }
@@ -294,9 +439,9 @@ $(document).ready(function() {
                         if (blockData[toPos[0]][toPos[1]] == 8) {
                             var timer;
                             clearTimeout(timer);
-                            timer= setTimeout(function(){
+                            timer = setTimeout(function() {
                                 $(".love-block").css("display", "block");
-                                 showLoveBlock();
+                                showLoveBlock();
 
                             }, 500);
                         }
@@ -354,9 +499,9 @@ $(document).ready(function() {
                         if (blockData[toPos[0]][toPos[1]] == 8) {
                             var timer;
                             clearTimeout(timer);
-                            timer= setTimeout(function(){
+                            timer = setTimeout(function() {
                                 $(".love-block").css("display", "block");
-                                 showLoveBlock();
+                                showLoveBlock();
 
                             }, 500);
                         }
@@ -455,45 +600,6 @@ $(document).ready(function() {
         }, time);
     }
 
-    function getTextValue(number) {
-        switch (number) {
-            case 2:
-                return "实习僧";
-                break;
-            case 4:
-                return "页面仔";
-                break;
-            case 8:
-                return "码农";
-                break;
-            case 16:
-                return "程序猿";
-                break;
-            case 32:
-                return "攻城狮";
-                break;
-            case 64:
-                return "产品狗";
-                break;
-            case 128:
-                return "产品经理";
-                break;
-            case 256:
-                return "产品总监";
-                break;
-            case 512:
-                return "总经理";
-                break;
-            case 1024:
-                return "CEO";
-                break;
-            case 2048:
-                return "白富美";
-                break;
-            default:
-                break;
-        }
-    }
 
     adaptToMobile();
 
@@ -571,15 +677,8 @@ $(document).ready(function() {
 
     function showLoveBlock() {
 
-        $("#love-block").css("height", window.innerHeight-200);
+        $("#love-block").css("height", window.innerHeight - 100);
         //打印字符函数
-        function printWord(words) {
-            if (words) {
-                for (var i = 0; i < words.length; i++) {
-                    words[i]
-                };
-            }
-        }
         $.fn.autotype = function() {
             var _this = $(this);
             var str = _this.html();
@@ -601,13 +700,14 @@ $(document).ready(function() {
                     _this.html(str.substring(0, index) + (index & 1 ? '_' : ''));
                 } else {
                     _this.html(str.substring(0, index));
-                    clearTimeout(timer);
+                    // clearTimeout(timer);
+                    clearInterval(timerInterval);
                 };
-                setTimeout(args.callee, 150);
             };
+            var timerInterval = setInterval(timer, 150);
             // 延迟1s开始
-            // setTimeout(timer,1000);
-            timer();
+            setTimeout(timer,1000);
+            // timer();
         };
         $(".love-block .text-block").autotype();
 
@@ -621,8 +721,8 @@ $(document).ready(function() {
 
 
         require(
-            ['zrender', 'zrender/shape/Circle', 'zrender/shape/Text', 'zrender/animation/Animation'],
-            function(zrender, CircleShape, TextShape, Animation) {
+            ['zrender', 'zrender/shape/Heart', 'zrender/shape/Text', 'zrender/animation/Animation'],
+            function(zrender, HeartShape, TextShape, Animation) {
                 zr = zrender.init(document.getElementById('love-block'));
                 var width = Math.ceil(zr.getWidth());
                 var height = Math.ceil(zr.getHeight());
@@ -631,7 +731,7 @@ $(document).ready(function() {
                 var guid = require('zrender/tool/guid');
                 var gameRunning;
                 var shapeList = [];
-                var circleShapes = [];
+                var heartShapes = [];
                 var pointText;
                 var knife;
                 var hasCatched = {};
@@ -640,83 +740,13 @@ $(document).ready(function() {
                 var timeInterval;
                 var gameTime = 10;
                 var timer;
-                var clearCircle = false;
-
-                function getRandomNum(from, to) {
-                    return from + Math.floor(Math.random() * to);
-                }
-
-                clearInterval(timeInterval);
-                timeInterval = setInterval(function() {
-                    for (var i = 0; i < 3; i++) {
-                        var circleShape = new CircleShape({
-                            style: {
-                                x: getRandomNum(0, 640),
-                                y: getRandomNum(0, 800),
-                                r: getRandomNum(8, 12),
-                                brushType: 'fill',
-                                color: Math.random() > 0.5 ? '#ee6d66' : '#E73225',
-                                opacity: 0.5,
-                                id: guid()
-                            },
-                            hoverable: false
-                        });
-                        circleShapes.push(circleShape);
-                        zr.addShape(circleShape);
-                        zr.animate(circleShape.id, 'style')
-                            .delay(10000)
-                            .when(1000, {
-                                x: 320,
-                                y: 400,
-                                opacity: 0
-                            })
-                            .done(function() {
-                                zr.delShape(circleShape.id);
-                                setTimeout(function() {
-                                    clearInterval(timeInterval);
-                                }, 1000);
-                            })
-                            .start('easing');
-                        zr.refresh();
-                    };
-                    if (circleShapes.length >= 50) {
-                        clearCircle = true;
-                    }
-                    // console.log(circleShape.id);
-                }, 500);
-
-                // if (clearCircle) {
-                //     moveCircleShape();
-                //     setTimeout(function(){
-                //         clearInterval(timeInterval);
-                //     }, 1000);
-                // }
-
-                function moveCircleShape() {
-                    var timeInterval;
-                    clearInterval(timeInterval);
-                    var count = 0;
-                    timeInterval = setInterval(function() {
-                        zr.animate(circleShapes[count].id, 'style')
-                            .when(1000, {
-                                x: 320,
-                                y: 400
-                            })
-                            .done(function() {
-                                zr.delShape(circleShapes[count].id);
-                                zr.refresh();
-                            })
-                            .start('easing');
-                        circleShapes.unshift();
-                        count++;
-                    }, 200);
-                }
-
-                var circleShape = new CircleShape({
+                var clearHeart = false;
+                var heartShapeBig = new HeartShape({
                     style: {
                         x: 320,
-                        y: 400,
-                        r: 10,
+                        y: 350,
+                        a: 30,
+                        b: 45,
                         brushType: 'fill',
                         color: '#E73225',
                         opacity: 1,
@@ -725,30 +755,148 @@ $(document).ready(function() {
                     },
                     hoverable: false
                 });
-                zr.addShape(circleShape);
-                // console.log(circleShape.id);
+                zr.addShape(heartShapeBig);
                 zr.render();
-                zr.animate(circleShape.id, 'style')
-                    .delay(1000)
-                    .when(1000, {
-                        r: 80
-                    })
-                    .done(function() {
-                        zr.animate(circleShape.id, 'style', true)
-                            .when(400, {
-                                r: 90
-                            })
-                            .when(500, {
-                                r: 70
-                            })
-                            .start('easing');
-                        $(".love-block .text-block2").show().autotype();
-                    })
-                    .start('easing');
-                zr.refresh();
 
 
-            });
-    }
+                $(".love-block .audio-btn").append("<audio src='../2048/lib/meet.mp3' type='audio/mpeg' preload='auto' autoplay loop></audio>");
+                var audioEle = $(".love-block audio")[0];
+                audioEle.play();
+                $(".continue-btn").on("touchend", function() {
+                    $(".love-block").hide();
+                    $(".text-block2").hide();
+                    $(".text-block3").hide();
+                    $(audioEle).remove();
+                    $(this).hide();
+                    zr.clear();
+                });
+                audioEle.play();
+                $(".love-block .audio-btn").on("touchend", function() {
+                    var $this = $(this);
+                    if ($this.hasClass("music-on")) {
+                        $this.removeClass("music-on").addClass("music-off");
+                        audioEle.pause();
+                    } else {
+                        $this.addClass("music-on").removeClass("music-off");
+                        audioEle.play();
+                    }
 
+                });
+
+
+                function getRandomNum(from, to) {
+                    return from + Math.floor(Math.random() * to);
+                }
+
+                clearInterval(timeInterval);
+                timeInterval = setInterval(function() {
+                    for (var i = 0; i < 8; i++) {
+                        var randomSize = getRandomNum(12, 20);
+                        var heartShape = new HeartShape({
+                            style: {
+                                x: getRandomNum(0, 640),
+                                y: getRandomNum(0, 800),
+                                a: randomSize,
+                                b: 1.5 * randomSize,
+                                brushType: 'fill',
+                                color: Math.random() > 0.5 ? '#ee6d66' : '#E73225',
+                                opacity: 0.5,
+                                id: guid()
+                            },
+                            hoverable: false
+                        });
+                        heartShapes.push(heartShape);
+                        zr.addShape(heartShape);
+                        zr.refresh();
+                        // zr.animate(heartShape.id, 'style')
+                        //     .delay(6*1000)
+                        //     .when(500, {
+                        //         x: 320,
+                        //         y: 400,
+                        //         opacity: 0
+                        //     })
+                        //     .done(function() {
+                        //         zr.delShape(heartShape.id);
+                        //         setTimeout(function() {
+                        //             clearInterval(timeInterval);
+                        //         }, 1000);
+                        //     })
+                        //     .start('easing');
+                        // zr.refresh();
+                    };
+                    // if (heartShapes.length >= 50) {
+                    //     clearHeart = true;
+                    // }
+                }, 500);
+
+                // if (clearHeart) {
+                //     moveHeartShape();
+                //     setTimeout(function(){
+                //         clearInterval(timeInterval);
+                //     }, 1000);
+                // }
+                setTimeout(function() {
+                    moveHeartShape();
+                    setTimeout(function(){
+                        clearInterval(timeInterval);
+                    }, 500);
+                }, 7*1000);
+
+                function moveHeartShape() {
+                    var timer;
+                    var currentSizeA = 30;
+                    var currentSizeB;
+                    clearInterval(timer);
+                    timer = setInterval(function() {
+                            currentSizeA += 10;
+                            currentSizeB =1.5*currentSizeA;
+                            if (!heartShapes.length) {
+                                clearInterval(timer);
+                                zr.animate(heartShapeBig.id, 'style', true)
+                                    .when(500, {
+                                        a: currentSizeA+5,
+                                        b: 1.5*(currentSizeA+5)
+                                    })
+                                    .when(1000, {
+                                        a: currentSizeA-5,
+                                        b: 1.5*(currentSizeA-5)
+                                    })
+                                    .start('easing');
+                                $(".love-block .text-block2").show().autotype();
+                                setTimeout(function() {
+                                    $(".love-block .text-block3").show().autotype();
+                                    setTimeout(function(){
+                                        $(".love-block .continue-btn").show();
+                                    }, 3000);
+                                }, 15*1000);
+                            };
+                            heartShapes.length > 15 ? length = 15 : length = heartShapes.length;
+                            for (var i = 0; i < length; i++) {
+                                zr.animate(heartShapes[i].id, 'style')
+                                    .when(800, {
+                                        x: 320,
+                                        y: 350,
+                                        opacity: 0
+                                    })
+                                    .done(function() {
+                                        // zr.delShape(heartShapes[i].id);
+                                        zr.animate(heartShapeBig.id, 'style')
+                                            .when(600, {
+                                                a: currentSizeA,
+                                                b: currentSizeB
+                                            })
+                                            .start('easing');
+                                    })
+                                    .start('easing');
+                            };
+                            for (var i = 0; i < length; i++) {
+                                heartShapes.shift();
+                            };
+                    }, 500);
+                }
+            // var randomSize = getRandomNum(8, 12);
+
+            zr.refresh();
+        });
+}
 });
