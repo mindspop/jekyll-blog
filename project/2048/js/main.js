@@ -8,6 +8,24 @@ require.config({
 
 $(document).ready(function() {
     var audioEle = $(".love-block audio")[0];
+    $(".love-block .audio-btn").on("touchend", function() {
+        var $this = $(this);
+        if ($this.hasClass("music-on")) {
+            $this.removeClass("music-on").addClass("music-off");
+            audioEle.pause();
+        } else {
+            $this.addClass("music-on").removeClass("music-off");
+            audioEle.play();
+        }
+
+    });
+
+    $(".love-block .audio-btn").trigger("touchend");
+    audioEle.pause();
+    setTimeout(function() {
+        $(".love-block .audio-btn").trigger("touchend");
+    }, 100);
+
     //二维数组存储方块数字
     var blockData = new Array();
     var gameScore = 0;
@@ -25,6 +43,7 @@ $(document).ready(function() {
         $(".start-mask").hide();
         isMyGF = true;
         setGameVersion();
+        $(".header .title").html("迎娶黑富美游戏");
         init();
     })
     $("#js-2048").on("touchend", function() {
@@ -289,7 +308,7 @@ $(document).ready(function() {
                         gameScore += blockData[toPos[0]][toPos[1]];
                         $(".score-num").text(gameScore);
                         moveWithAnimation(pos, toPos, blockData[toPos[0]][toPos[1]]);
-                        if (blockData[toPos[0]][toPos[1]] == 64 && !hasShowLoveBlock) {
+                        if (blockData[toPos[0]][toPos[1]] == 64 && !hasShowLoveBlock && isMyGF) {
                             hasShowLoveBlock = true;
                             var timer;
                             clearTimeout(timer);
@@ -350,7 +369,7 @@ $(document).ready(function() {
                         gameScore += blockData[toPos[0]][toPos[1]];
                         $(".score-num").text(gameScore);
                         moveWithAnimation(pos, toPos, blockData[toPos[0]][toPos[1]]);
-                        if (blockData[toPos[0]][toPos[1]] == 64 && !hasShowLoveBlock) {
+                        if (blockData[toPos[0]][toPos[1]] == 64 && !hasShowLoveBlock && isMyGF) {
                             hasShowLoveBlock = true;
                             var timer;
                             clearTimeout(timer);
@@ -412,7 +431,7 @@ $(document).ready(function() {
                         gameScore += blockData[toPos[0]][toPos[1]];
                         $(".score-num").text(gameScore);
                         moveWithAnimation(pos, toPos, blockData[toPos[0]][toPos[1]]);
-                        if (blockData[toPos[0]][toPos[1]] == 64 && !hasShowLoveBlock) {
+                        if (blockData[toPos[0]][toPos[1]] == 64 && !hasShowLoveBlock && isMyGF) {
                             hasShowLoveBlock = true;
                             var timer;
                             clearTimeout(timer);
@@ -473,7 +492,7 @@ $(document).ready(function() {
                         gameScore += blockData[toPos[0]][toPos[1]];
                         $(".score-num").text(gameScore);
                         moveWithAnimation(pos, toPos, blockData[toPos[0]][toPos[1]]);
-                        if (blockData[toPos[0]][toPos[1]] == 64 && !hasShowLoveBlock) {
+                        if (blockData[toPos[0]][toPos[1]] == 64 && !hasShowLoveBlock && isMyGF) {
                             hasShowLoveBlock = true;
                             var timer;
                             clearTimeout(timer);
@@ -654,6 +673,7 @@ $(document).ready(function() {
     }
 
     function showLoveBlock() {
+        $(".love-block .audio-btn").trigger("touchend");
 
         $("#love-block").css("height", window.innerHeight - 120);
         //打印字符函数
@@ -753,22 +773,7 @@ $(document).ready(function() {
                     $(this).hide();
                     zr.clear();
                 });
-                $(".love-block .audio-btn").on("touchend", function() {
-                    var $this = $(this);
-                    if ($this.hasClass("music-on")) {
-                        $this.removeClass("music-on").addClass("music-off");
-                        audioEle.pause();
-                    } else {
-                        $this.addClass("music-on").removeClass("music-off");
-                        audioEle.play();
-                    }
 
-                });
-
-                $(".love-block .audio-btn").trigger("touchend");
-                setTimeout(function(){
-                    $(".love-block .audio-btn").trigger("touchend");
-                }, 1000);
 
 
                 function getRandomNum(from, to) {
@@ -835,57 +840,57 @@ $(document).ready(function() {
                 }, 7 * 1000);
 
                 function moveHeartShape() {
-                        var timer;
-                        var currentSizeA = 30;
-                        var currentSizeB;
-                        clearInterval(timer);
-                        timer = setInterval(function() {
-                            currentSizeA += 10;
-                            currentSizeB = 1.5 * currentSizeA;
-                            if (!heartShapes.length) {
-                                clearInterval(timer);
-                                zr.animate(heartShapeBig.id, 'style', true)
-                                    .when(500, {
-                                        a: currentSizeA + 5,
-                                        b: 1.5 * (currentSizeA + 5)
-                                    })
-                                    .when(1000, {
-                                        a: currentSizeA - 5,
-                                        b: 1.5 * (currentSizeA - 5)
-                                    })
-                                    .start('easing');
-                                $(".love-block .text-block2").show().autotype();
+                    var timer;
+                    var currentSizeA = 30;
+                    var currentSizeB;
+                    clearInterval(timer);
+                    timer = setInterval(function() {
+                        currentSizeA += 10;
+                        currentSizeB = 1.5 * currentSizeA;
+                        if (!heartShapes.length) {
+                            clearInterval(timer);
+                            zr.animate(heartShapeBig.id, 'style', true)
+                                .when(500, {
+                                    a: currentSizeA + 5,
+                                    b: 1.5 * (currentSizeA + 5)
+                                })
+                                .when(1000, {
+                                    a: currentSizeA - 5,
+                                    b: 1.5 * (currentSizeA - 5)
+                                })
+                                .start('easing');
+                            $(".love-block .text-block2").show().autotype();
+                            setTimeout(function() {
+                                $(".love-block .text-block3").show().autotype();
                                 setTimeout(function() {
-                                    $(".love-block .text-block3").show().autotype();
-                                    setTimeout(function() {
-                                        $(".love-block .continue-btn").show();
-                                    }, 3000);
-                                }, 15 * 1000);
-                            };
-                            heartShapes.length > 15 ? length = 15 : length = heartShapes.length;
-                            for (var i = 0; i < length; i++) {
-                                zr.animate(heartShapes[i].id, 'style')
-                                    .when(800, {
-                                        x: 320,
-                                        y: 350,
-                                        opacity: 0
-                                    })
-                                    .done(function() {
-                                        // zr.delShape(heartShapes[i].id);
-                                        zr.animate(heartShapeBig.id, 'style')
-                                            .when(600, {
-                                                a: currentSizeA,
-                                                b: currentSizeB
-                                            })
-                                            .start('easing');
-                                    })
-                                    .start('easing');
-                            };
-                            for (var i = 0; i < length; i++) {
-                                heartShapes.shift();
-                            };
-                        }, 500);
-                    }
+                                    $(".love-block .continue-btn").show();
+                                }, 3000);
+                            }, 15 * 1000);
+                        };
+                        heartShapes.length > 15 ? length = 15 : length = heartShapes.length;
+                        for (var i = 0; i < length; i++) {
+                            zr.animate(heartShapes[i].id, 'style')
+                                .when(800, {
+                                    x: 320,
+                                    y: 350,
+                                    opacity: 0
+                                })
+                                .done(function() {
+                                    // zr.delShape(heartShapes[i].id);
+                                    zr.animate(heartShapeBig.id, 'style')
+                                        .when(600, {
+                                            a: currentSizeA,
+                                            b: currentSizeB
+                                        })
+                                        .start('easing');
+                                })
+                                .start('easing');
+                        };
+                        for (var i = 0; i < length; i++) {
+                            heartShapes.shift();
+                        };
+                    }, 500);
+                }
                 zr.refresh();
             });
     }
