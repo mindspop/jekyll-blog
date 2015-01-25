@@ -6,37 +6,11 @@ require.config({
     }]
 });
 
-
-// require(
-//     ['zrender'],
-//     function(zrender, $) {
-//         console.log($);
-
-//     }
-// );
-
-
-
 $(document).ready(function() {
-    // just init to get a zrender Instance
-
-
-
+    $(".love-block .audio-btn").append("<audio src='../2048/lib/meet.mp3' type='audio/mpeg' preload='auto' loop></audio>");
+    var audioEle = $(".love-block audio")[0];
     //二维数组存储方块数字
     var blockData = new Array();
-    // var colorMap = {
-    //     "2": "#eee4da",
-    //     "4": "#ede0c8",
-    //     "8": "#f2b179",
-    //     "16": "#f59563",
-    //     "32": "#f67c5f",
-    //     "64": "#f65e3b",
-    //     "128": "#edcf72",
-    //     "256": "#edcc61",
-    //     "512": "#edc850",
-    //     "1024": "#edc53f",
-    //     "2048": "#edc22e"
-    // }
     var gameScore = 0;
     var isMyGF = false;
     var isIT = false;
@@ -315,7 +289,7 @@ $(document).ready(function() {
                         gameScore += blockData[toPos[0]][toPos[1]];
                         $(".score-num").text(gameScore);
                         moveWithAnimation(pos, toPos, blockData[toPos[0]][toPos[1]]);
-                        if (blockData[toPos[0]][toPos[1]] == 8) {
+                        if (blockData[toPos[0]][toPos[1]] == 512) {
                             var timer;
                             clearTimeout(timer);
                             timer = setTimeout(function() {
@@ -375,7 +349,7 @@ $(document).ready(function() {
                         gameScore += blockData[toPos[0]][toPos[1]];
                         $(".score-num").text(gameScore);
                         moveWithAnimation(pos, toPos, blockData[toPos[0]][toPos[1]]);
-                        if (blockData[toPos[0]][toPos[1]] == 8) {
+                        if (blockData[toPos[0]][toPos[1]] == 512) {
                             var timer;
                             clearTimeout(timer);
                             timer = setTimeout(function() {
@@ -436,7 +410,7 @@ $(document).ready(function() {
                         gameScore += blockData[toPos[0]][toPos[1]];
                         $(".score-num").text(gameScore);
                         moveWithAnimation(pos, toPos, blockData[toPos[0]][toPos[1]]);
-                        if (blockData[toPos[0]][toPos[1]] == 8) {
+                        if (blockData[toPos[0]][toPos[1]] == 512) {
                             var timer;
                             clearTimeout(timer);
                             timer = setTimeout(function() {
@@ -496,7 +470,7 @@ $(document).ready(function() {
                         gameScore += blockData[toPos[0]][toPos[1]];
                         $(".score-num").text(gameScore);
                         moveWithAnimation(pos, toPos, blockData[toPos[0]][toPos[1]]);
-                        if (blockData[toPos[0]][toPos[1]] == 8) {
+                        if (blockData[toPos[0]][toPos[1]] == 512) {
                             var timer;
                             clearTimeout(timer);
                             timer = setTimeout(function() {
@@ -677,7 +651,7 @@ $(document).ready(function() {
 
     function showLoveBlock() {
 
-        $("#love-block").css("height", window.innerHeight - 100);
+        $("#love-block").css("height", window.innerHeight - 120);
         //打印字符函数
         $.fn.autotype = function() {
             var _this = $(this);
@@ -706,7 +680,7 @@ $(document).ready(function() {
             };
             var timerInterval = setInterval(timer, 150);
             // 延迟1s开始
-            setTimeout(timer,1000);
+            setTimeout(timer, 1000);
             // timer();
         };
         $(".love-block .text-block").autotype();
@@ -759,9 +733,14 @@ $(document).ready(function() {
                 zr.render();
 
 
-                $(".love-block .audio-btn").append("<audio src='../2048/lib/meet.mp3' type='audio/mpeg' preload='auto' autoplay loop></audio>");
-                var audioEle = $(".love-block audio")[0];
-                audioEle.play();
+
+                var audioPlay = function() {
+                    audioEle.play(); //音频将被加载并播放
+                };
+                // $(".love-block .audio-btn").on("click", audioPlay);
+
+
+
                 $(".continue-btn").on("touchend", function() {
                     $(".love-block").hide();
                     $(".text-block2").hide();
@@ -770,7 +749,6 @@ $(document).ready(function() {
                     $(this).hide();
                     zr.clear();
                 });
-                audioEle.play();
                 $(".love-block .audio-btn").on("touchend", function() {
                     var $this = $(this);
                     if ($this.hasClass("music-on")) {
@@ -782,6 +760,11 @@ $(document).ready(function() {
                     }
 
                 });
+
+                $(".love-block .audio-btn").trigger("touchend");
+                setTimeout(function(){
+                    $(".love-block .audio-btn").trigger("touchend");
+                }, 1000);
 
 
                 function getRandomNum(from, to) {
@@ -800,7 +783,7 @@ $(document).ready(function() {
                                 b: 1.5 * randomSize,
                                 brushType: 'fill',
                                 color: Math.random() > 0.5 ? '#ee6d66' : '#E73225',
-                                opacity: 0.5,
+                                opacity: 00,
                                 id: guid()
                             },
                             hoverable: false
@@ -808,6 +791,11 @@ $(document).ready(function() {
                         heartShapes.push(heartShape);
                         zr.addShape(heartShape);
                         zr.refresh();
+                        zr.animate(heartShape.id, 'style')
+                            .when(500, {
+                                opacity: 0.5
+                            })
+                            .start('easing');
                         // zr.animate(heartShape.id, 'style')
                         //     .delay(6*1000)
                         //     .when(500, {
@@ -837,38 +825,38 @@ $(document).ready(function() {
                 // }
                 setTimeout(function() {
                     moveHeartShape();
-                    setTimeout(function(){
+                    setTimeout(function() {
                         clearInterval(timeInterval);
                     }, 500);
-                }, 7*1000);
+                }, 7 * 1000);
 
                 function moveHeartShape() {
-                    var timer;
-                    var currentSizeA = 30;
-                    var currentSizeB;
-                    clearInterval(timer);
-                    timer = setInterval(function() {
+                        var timer;
+                        var currentSizeA = 30;
+                        var currentSizeB;
+                        clearInterval(timer);
+                        timer = setInterval(function() {
                             currentSizeA += 10;
-                            currentSizeB =1.5*currentSizeA;
+                            currentSizeB = 1.5 * currentSizeA;
                             if (!heartShapes.length) {
                                 clearInterval(timer);
                                 zr.animate(heartShapeBig.id, 'style', true)
                                     .when(500, {
-                                        a: currentSizeA+5,
-                                        b: 1.5*(currentSizeA+5)
+                                        a: currentSizeA + 5,
+                                        b: 1.5 * (currentSizeA + 5)
                                     })
                                     .when(1000, {
-                                        a: currentSizeA-5,
-                                        b: 1.5*(currentSizeA-5)
+                                        a: currentSizeA - 5,
+                                        b: 1.5 * (currentSizeA - 5)
                                     })
                                     .start('easing');
                                 $(".love-block .text-block2").show().autotype();
                                 setTimeout(function() {
                                     $(".love-block .text-block3").show().autotype();
-                                    setTimeout(function(){
+                                    setTimeout(function() {
                                         $(".love-block .continue-btn").show();
                                     }, 3000);
-                                }, 15*1000);
+                                }, 15 * 1000);
                             };
                             heartShapes.length > 15 ? length = 15 : length = heartShapes.length;
                             for (var i = 0; i < length; i++) {
@@ -892,11 +880,9 @@ $(document).ready(function() {
                             for (var i = 0; i < length; i++) {
                                 heartShapes.shift();
                             };
-                    }, 500);
-                }
-            // var randomSize = getRandomNum(8, 12);
-
-            zr.refresh();
-        });
-}
+                        }, 500);
+                    }
+                zr.refresh();
+            });
+    }
 });

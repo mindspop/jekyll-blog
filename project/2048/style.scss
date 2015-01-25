@@ -210,6 +210,8 @@ body{
     right: 0;
     background-color: rgba(238, 228, 218, 1);
     .text-block{
+        position: absolute;
+        top: 20px;
         height: 100px;
         font-size: 30px;
         color: #37618B;
@@ -277,6 +279,7 @@ body{
     }
 }
 #love-block{
+    margin-top: 120px;
     width: 640px;
     height: 800px;
 }
