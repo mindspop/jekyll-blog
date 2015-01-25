@@ -7,7 +7,6 @@ require.config({
 });
 
 $(document).ready(function() {
-    $(".love-block .audio-btn").append("<audio src='../2048/lib/meet.mp3' type='audio/mpeg' preload='auto' loop></audio>");
     var audioEle = $(".love-block audio")[0];
     //二维数组存储方块数字
     var blockData = new Array();
@@ -750,7 +749,7 @@ $(document).ready(function() {
                     $(".love-block").hide();
                     $(".text-block2").hide();
                     $(".text-block3").hide();
-                    $(audioEle).remove();
+                    audioEle.pause();
                     $(this).hide();
                     zr.clear();
                 });
