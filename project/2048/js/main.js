@@ -513,8 +513,8 @@ $(document).ready(function() {
     function moveWithAnimation(fromPos, toPos, newNum) {
         $(".block").removeClass("animation-show animation-bump");
         var $fromEle = $("#block-" + fromPos[0] + "-" + fromPos[1]);
-        var distanceY = (fromPos[0] - toPos[0]) * 152;
-        var distanceX = (toPos[1] - fromPos[1]) * 152;
+        var distanceY = (fromPos[0] - toPos[0]) * 144;
+        var distanceX = (toPos[1] - fromPos[1]) * 144;
         $fromEle.animate({
             "top": "-=" + distanceY,
             "left": "+=" + distanceX
@@ -562,8 +562,8 @@ $(document).ready(function() {
         $curBlock
             .text(getTextValue(num))
             .css({
-                "top": 16 + i * 152,
-                "left": 16 + j * 152
+                "top": 16 + i * 144,
+                "left": 16 + j * 144
             })
             .attr("id", "block-" + i + "-" + j)
             .addClass("animation-show")

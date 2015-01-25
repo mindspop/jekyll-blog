@@ -239,15 +239,15 @@ body {
 
 .main-body {
   position: relative;
-  width: 608px;
+  width: 576px;
   padding: 16px;
-  margin: 0 auto;
+  margin: 0 16px;
   background-color: #bbada0; }
   .main-body .grid-cell {
     float: left;
-    width: 140px;
-    height: 140px;
-    margin: 6px;
+    width: 134px;
+    height: 134px;
+    margin: 5px;
     background-color: rgba(238, 228, 218, 0.35);
     font-family: Arial;
     color: white;
@@ -255,9 +255,9 @@ body {
   .main-body .block {
     display: none;
     position: absolute;
-    width: 140px;
-    height: 140px;
-    margin: 6px;
+    width: 134px;
+    height: 134px;
+    margin: 5px;
     background-color: rgba(238, 228, 218, 0.35);
     font-family: Arial;
     color: #f9f6f2;
