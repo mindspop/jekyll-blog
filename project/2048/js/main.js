@@ -15,6 +15,7 @@ $(document).ready(function() {
     var isMyGF = false;
     var isIT = false;
     var getTextValue;
+    var hasShowLoveBlock = false;
     $("#js-it").on("touchend", function() {
         $(".start-mask").hide();
         isIT = true;
@@ -289,7 +290,8 @@ $(document).ready(function() {
                         gameScore += blockData[toPos[0]][toPos[1]];
                         $(".score-num").text(gameScore);
                         moveWithAnimation(pos, toPos, blockData[toPos[0]][toPos[1]]);
-                        if (blockData[toPos[0]][toPos[1]] == 64) {
+                        if (blockData[toPos[0]][toPos[1]] == 64 && !hasShowLoveBlock) {
+                            hasShowLoveBlock = true;
                             var timer;
                             clearTimeout(timer);
                             timer = setTimeout(function() {
@@ -349,7 +351,8 @@ $(document).ready(function() {
                         gameScore += blockData[toPos[0]][toPos[1]];
                         $(".score-num").text(gameScore);
                         moveWithAnimation(pos, toPos, blockData[toPos[0]][toPos[1]]);
-                        if (blockData[toPos[0]][toPos[1]] == 64) {
+                        if (blockData[toPos[0]][toPos[1]] == 64 && !hasShowLoveBlock) {
+                            hasShowLoveBlock = true;
                             var timer;
                             clearTimeout(timer);
                             timer = setTimeout(function() {
@@ -410,7 +413,8 @@ $(document).ready(function() {
                         gameScore += blockData[toPos[0]][toPos[1]];
                         $(".score-num").text(gameScore);
                         moveWithAnimation(pos, toPos, blockData[toPos[0]][toPos[1]]);
-                        if (blockData[toPos[0]][toPos[1]] == 64) {
+                        if (blockData[toPos[0]][toPos[1]] == 64 && !hasShowLoveBlock) {
+                            hasShowLoveBlock = true;
                             var timer;
                             clearTimeout(timer);
                             timer = setTimeout(function() {
@@ -470,7 +474,8 @@ $(document).ready(function() {
                         gameScore += blockData[toPos[0]][toPos[1]];
                         $(".score-num").text(gameScore);
                         moveWithAnimation(pos, toPos, blockData[toPos[0]][toPos[1]]);
-                        if (blockData[toPos[0]][toPos[1]] == 64) {
+                        if (blockData[toPos[0]][toPos[1]] == 64 && !hasShowLoveBlock) {
+                            hasShowLoveBlock = true;
                             var timer;
                             clearTimeout(timer);
                             timer = setTimeout(function() {
