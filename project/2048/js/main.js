@@ -289,7 +289,7 @@ $(document).ready(function() {
                         gameScore += blockData[toPos[0]][toPos[1]];
                         $(".score-num").text(gameScore);
                         moveWithAnimation(pos, toPos, blockData[toPos[0]][toPos[1]]);
-                        if (blockData[toPos[0]][toPos[1]] == 512) {
+                        if (blockData[toPos[0]][toPos[1]] == 64) {
                             var timer;
                             clearTimeout(timer);
                             timer = setTimeout(function() {
@@ -349,7 +349,7 @@ $(document).ready(function() {
                         gameScore += blockData[toPos[0]][toPos[1]];
                         $(".score-num").text(gameScore);
                         moveWithAnimation(pos, toPos, blockData[toPos[0]][toPos[1]]);
-                        if (blockData[toPos[0]][toPos[1]] == 512) {
+                        if (blockData[toPos[0]][toPos[1]] == 64) {
                             var timer;
                             clearTimeout(timer);
                             timer = setTimeout(function() {
@@ -410,7 +410,7 @@ $(document).ready(function() {
                         gameScore += blockData[toPos[0]][toPos[1]];
                         $(".score-num").text(gameScore);
                         moveWithAnimation(pos, toPos, blockData[toPos[0]][toPos[1]]);
-                        if (blockData[toPos[0]][toPos[1]] == 512) {
+                        if (blockData[toPos[0]][toPos[1]] == 64) {
                             var timer;
                             clearTimeout(timer);
                             timer = setTimeout(function() {
@@ -470,7 +470,7 @@ $(document).ready(function() {
                         gameScore += blockData[toPos[0]][toPos[1]];
                         $(".score-num").text(gameScore);
                         moveWithAnimation(pos, toPos, blockData[toPos[0]][toPos[1]]);
-                        if (blockData[toPos[0]][toPos[1]] == 512) {
+                        if (blockData[toPos[0]][toPos[1]] == 64) {
                             var timer;
                             clearTimeout(timer);
                             timer = setTimeout(function() {
