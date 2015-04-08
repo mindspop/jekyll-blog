@@ -1,5 +1,5 @@
 markdown: redcarpet
-highlighter: null
+highlighter: pygments
 permalink: /:year-:month-:day/:title.html
 
 url: mindspop.github.io
