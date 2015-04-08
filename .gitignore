@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 _site/
 .sass-cache/
-=======
-.sass-cache/
-_site/
->>>>>>> writing
+.idea/
+*.map
