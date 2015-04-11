@@ -24,5 +24,3 @@
 5. [https://gist.github.com/fanzheng/3498942](https://gist.github.com/fanzheng/3498942)
 6. [https://gist.github.com/andyferra/2554919](https://gist.github.com/andyferra/2554919)
 
-
-

@@ -3,7 +3,6 @@
  * We just use the CSS3 mixins of Compass @import 'compass/css3';
  */
 
-
 // Clearfix
 @mixin clearfix {
   *zoom: 1;
@@ -16,13 +15,11 @@
   }
 }
 
-
 // ie7 inline-block hack
 @mixin ie7-inline-block {
   *display: inline;
   *zoom: 1;
 }
-
 
 // Sizing shortcuts
 @mixin size($width: 1px, $height: 1px, $radius: false) {
@@ -32,10 +29,10 @@
     border-radius: $radius;
   }
 }
+
 @mixin square($size: 1px, $radius: false) {
   @include size($size, $size, $radius);
 }
-
 
 // Set color for the placeholder text
 @mixin placeholder($color: #999) {
@@ -47,7 +44,6 @@
   }
 }
 
-
 // Set background-color for the selected text
 @mixin selection($f-color: inherit, $b-color: #b4d5fe) {
   @each $prefix in '-moz-', '' {
@@ -58,7 +54,6 @@
     }
   }
 }
-
 
 // Set text-size-adjust property for mobile devices
 @mixin text-size-adjust($value: 100%) {

@@ -90,10 +90,10 @@ ins, a {
  * 引用自 GitHub markdown 样式，同时修改了代码部分的样式
  */
 a {
-  color: #4183C4; }
+  color: #4183c4; }
 
 a.absent {
-  color: #cc0000; }
+  color: #c00; }
 
 a.anchor {
   display: block;
@@ -141,7 +141,7 @@ h1 {
 
 h2 {
   font-size: 24px;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #ccc;
   color: black; }
 
 h3 {
@@ -154,7 +154,7 @@ h5 {
   font-size: 14px; }
 
 h6 {
-  color: #777777;
+  color: #777;
   font-size: 14px; }
 
 .markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
@@ -163,7 +163,7 @@ h6 {
 .markdown-body hr {
   background: url("https://a248.e.akamai.net/assets.github.com/assets/primer/markdown/dirty-shade-350cca8f57223ebd53603021b2e670f4f319f1b7.png") repeat-x scroll 0 0 transparent;
   border: 0 none;
-  color: #CCCCCC;
+  color: #ccc;
   height: 4px;
   padding: 0; }
 
@@ -216,8 +216,8 @@ h6 {
   margin-bottom: 0; }
 
 .markdown-body blockquote {
-  border-left: 4px solid #DDDDDD;
-  color: #777777;
+  border-left: 4px solid #ddd;
+  color: #777;
   padding: 0 15px; }
 
 .markdown-body blockquote > *:first-child {
@@ -230,15 +230,15 @@ h6 {
   font-weight: bold; }
 
 .markdown-body table th, .markdown-body table td {
-  border: 1px solid #CCCCCC;
+  border: 1px solid #ccc;
   padding: 6px 13px; }
 
 .markdown-body table tr {
-  background-color: #FFFFFF;
-  border-top: 1px solid #CCCCCC; }
+  background-color: #fff;
+  border-top: 1px solid #ccc; }
 
 .markdown-body table tr:nth-child(2n) {
-  background-color: #F8F8F8; }
+  background-color: #f8f8f8; }
 
 .markdown-body img {
   max-width: 100%; }
@@ -248,7 +248,7 @@ h6 {
   overflow: hidden; }
 
 .markdown-body span.frame > span {
-  border: 1px solid #DDDDDD;
+  border: 1px solid #ddd;
   display: block;
   float: left;
   margin: 13px 0 0;
@@ -262,7 +262,7 @@ h6 {
 
 .markdown-body span.frame span span {
   clear: both;
-  color: #333333;
+  color: #333;
   display: block;
   padding: 5px 0 0; }
 
@@ -319,7 +319,7 @@ h6 {
 
 .markdown-body code, .markdown-body tt {
   background-color: #fff;
-  border: 1px solid #EAEAEA;
+  border: 1px solid #eaeaea;
   border-radius: 3px 3px 3px 3px;
   margin: 0 2px;
   padding: 0 5px;
@@ -335,7 +335,7 @@ h6 {
 
 .markdown-body .highlight pre, .markdown-body pre {
   background-color: #23241f;
-  border: 1px solid #CCCCCC;
+  border: 1px solid #ccc;
   border-radius: 3px 3px 3px 3px;
   font-size: 13px;
   line-height: 19px;
